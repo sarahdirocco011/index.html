@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MEDIASET UNICA: Tutto il tuo mondo, in un'UNICA esperienza</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #0f172a; color: #f1f5f9; } /* Dark Mode Base */
+        .chart-container { position: relative; width: 100%; max-width: 600px; margin: 0 auto; height: 300px; max-height: 400px; }
+        @media (min-width: 768px) { .chart-container { height: 350px; } }
+        .card-hover:hover { transform: translateY(-5px); box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5); border-color: #3b82f6; }
+        .transition-all { transition-duration: 300ms; }
+        /* Custom Scrollbar */
+        .hide-scroll::-webkit-scrollbar { display: none; }
+        .hide-scroll { -ms-overflow-style: none; scrollbar-width: none; }
+        .hero-gradient { background: linear-gradient(to top, #0f172a 0%, transparent 100%); }
+        .glass-panel { background: rgba(30, 41, 59, 0.7); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
+    </style>
+    <!-- Application Structure Plan:
+         1. Header: Updated navigation (Settimane, Film, Serie...).
+         2. Hero (Themed Week): Simulates the "Crime Week" homepage takeover. High impact visual.
+         3. Concept Pivot: Explains the shift from "Mediaset Hub" to "Netflix Competitor".
+         4. "Settimane UNICA" Demo: Interactive section showing how the editorial curation works (Marathons, Collections).
+         5. Pricing & Plans: 4-Tier comparison (Free, 7.99, 10.99, 14.99).
+         6. Mobile Features: Visualizing the "Stories" concept.
+    -->
+</head>
+<body class="bg-slate-900 text-slate-100 antialiased selection:bg-blue-500 selection:text-white">
+
+    <!-- Navigation / Header -->
+    <nav class="bg-slate-900/90 backdrop-blur-md border-b border-slate-800 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center gap-6">
+                    <div class="flex items-center">
+                        <i class="fas fa-play-circle text-blue-500 text-2xl mr-2"></i>
+                        <span class="font-bold text-xl tracking-tight text-white">MEDIASET UNICA</span>
+                    </div>
+                    <!-- Desktop Menu -->
+                    <div class="hidden md:flex space-x-1">
+                        <a href="#hero" class="text-slate-300 hover:text-white px-3 py-2 text-sm font-medium">Home</a>
+                        <a href="#settimane" class="text-blue-400 hover:text-blue-300 px-3 py-2 text-sm font-bold"><i class="fas fa-calendar-week mr-1"></i> Settimane</a>
+                        <a href="#concept" class="text-slate-300 hover:text-white px-3 py-2 text-sm font-medium">Film</a>
+                        <a href="#concept" class="text-slate-300 hover:text-white px-3 py-2 text-sm font-medium">Serie</a>
+                        <a href="#pricing" class="text-slate-300 hover:text-white px-3 py-2 text-sm font-medium">Abbonamenti</a>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button class="text-slate-400 hover:text-white"><i class="fas fa-search"></i></button>
+                    <div class="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center text-xs font-bold border border-slate-600 cursor-pointer">IO</div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section: SETTIMANA CRIME Simulation -->
+    <section id="hero" class="relative w-full h-[85vh] flex items-center justify-center overflow-hidden border-b border-slate-800">
+        <!-- Background Mockup -->
+        <div class="absolute inset-0 z-0">
+            <!-- Simulated Dark/Moody Crime Background -->
+            <div class="absolute inset-0 bg-slate-900"></div>
+            <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1478720568477-152d9b164e63?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80')] bg-cover bg-center opacity-40 mix-blend-overlay"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/60 to-transparent"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-slate-900 via-transparent to-transparent"></div>
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 w-full mt-20">
+            <!-- Editorial Tag -->
+            <div class="inline-flex items-center px-3 py-1 rounded-full bg-red-600/90 text-white text-xs font-bold tracking-wider mb-4 border border-red-500 animate-fade-in">
+                <i class="fas fa-circle text-[8px] mr-2 animate-pulse"></i> IN CORSO: SETTIMANA CRIME
+            </div>
+            
+            <h1 class="text-5xl md:text-7xl font-extrabold text-white tracking-tight mb-4 max-w-3xl leading-tight drop-shadow-lg">
+                Indagini, Misteri e <br> <span class="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-blue-600">Verità Nascoste.</span>
+            </h1>
+            <p class="text-lg md:text-xl text-slate-300 max-w-2xl mb-8 font-light leading-relaxed drop-shadow-md">
+                7 giorni dedicati al lato oscuro. Dalle grandi serie investigative ai true crime che hanno sconvolto l'Italia. Solo su UNICA.
+            </p>
+            
+            <div class="flex flex-wrap gap-4 mb-12">
+                <button class="px-8 py-4 bg-white text-slate-900 font-bold rounded-lg hover:bg-slate-200 transition-colors flex items-center shadow-lg shadow-white/10">
+                    <i class="fas fa-play mr-2"></i> Guarda il Trailer
+                </button>
+                <button class="px-8 py-4 bg-slate-800/80 hover:bg-slate-700/80 text-white font-medium rounded-lg backdrop-blur-sm border border-slate-600 transition-colors flex items-center">
+                    <i class="fas fa-list mr-2"></i> Scopri la Collezione
+                </button>
+            </div>
+
+            <!-- Carousel Simulation -->
+            <div class="border-t border-white/10 pt-6">
+                <h4 class="text-sm font-bold text-slate-400 uppercase tracking-widest mb-4">I Top Crime di oggi</h4>
+                <div class="flex gap-4 overflow-x-auto hide-scroll pb-4">
+                    <div class="w-48 h-28 bg-slate-800 rounded-lg flex-shrink-0 relative overflow-hidden group cursor-pointer border border-slate-700">
+                        <div class="absolute inset-0 bg-slate-700 group-hover:scale-105 transition-transform duration-500"></div>
+                        <span class="absolute bottom-2 left-2 text-xs font-bold text-white z-10">C.S.I. Vegas</span>
+                    </div>
+                    <div class="w-48 h-28 bg-slate-800 rounded-lg flex-shrink-0 relative overflow-hidden group cursor-pointer border border-slate-700">
+                        <div class="absolute inset-0 bg-slate-600 group-hover:scale-105 transition-transform duration-500"></div>
+                        <span class="absolute bottom-2 left-2 text-xs font-bold text-white z-10">True Detective</span>
+                        <span class="absolute top-2 right-2 bg-blue-600 text-[10px] px-1.5 py-0.5 rounded text-white font-bold">NUOVO</span>
+                    </div>
+                    <div class="w-48 h-28 bg-slate-800 rounded-lg flex-shrink-0 relative overflow-hidden group cursor-pointer border border-slate-700">
+                        <div class="absolute inset-0 bg-slate-700 group-hover:scale-105 transition-transform duration-500"></div>
+                        <span class="absolute bottom-2 left-2 text-xs font-bold text-white z-10">Quarto Grado Doc</span>
+                    </div>
+                     <div class="w-48 h-28 bg-slate-800 rounded-lg flex-shrink-0 relative overflow-hidden group cursor-pointer border border-slate-700">
+                        <div class="absolute inset-0 bg-slate-700 group-hover:scale-105 transition-transform duration-500"></div>
+                        <span class="absolute bottom-2 left-2 text-xs font-bold text-white z-10">Sherlock</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Strategic Pivot Section -->
+    <section id="concept" class="py-16 bg-slate-900 border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <span class="text-blue-500 font-bold tracking-wider text-sm uppercase">Nuova Identità</span>
+                    <h2 class="text-3xl md:text-4xl font-bold text-white mt-2 mb-2">Non più "Solo Mediaset".<br>Il nuovo gigante dello streaming.</h2>
+                    <p class="text-xl md:text-2xl text-blue-400 font-bold italic mb-6">"Tutto il tuo mondo, in un'UNICA esperienza"</p>
+                    <p class="text-slate-400 text-lg mb-6 leading-relaxed">
+                        Mediaset Unica evolve da catch-up TV a piattaforma generalista competitiva. 
+                        Uniamo il meglio della produzione italiana con un catalogo globale di film e serie, organizzati attraverso il format editoriale delle <strong>"Settimane UNICA"</strong>.
+                    </p>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center text-blue-500 mt-1">
+                                <i class="fas fa-globe"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-white font-bold">Catalogo Globale</h4>
+                                <p class="text-sm text-slate-400">Accordi major per cinema USA, serie europee, Anime e Documentari.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-red-500/10 flex items-center justify-center text-red-500 mt-1">
+                                <i class="fas fa-video"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-white font-bold">UNICA Originals</h4>
+                                <p class="text-sm text-slate-400">Serie Crime, Teen drama e Docu-reality prodotti in esclusiva.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Content Mix Chart -->
+                <div class="glass-panel p-6 rounded-2xl">
+                    <h4 class="text-white text-center font-bold mb-4">Nuovo Mix Editoriale</h4>
+                    <div class="chart-container h-64">
+                        <canvas id="contentMixChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive "Settimane" Demo -->
+    <section id="settimane" class="py-16 bg-slate-950 relative overflow-hidden">
+        <!-- Decoration -->
+        <div class="absolute top-0 right-0 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-white">Il Cuore Editoriale: "Le Settimane"</h2>
+                <p class="mt-4 text-slate-400 max-w-2xl mx-auto">
+                    Ogni settimana un tema diverso che trasforma l'intera piattaforma. Un evento continuo per combattere la "paralysis of choice".
+                </p>
+            </div>
+
+            <!-- Interface Simulator -->
+            <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden shadow-2xl">
+                <!-- Simulator Header -->
+                <div class="bg-slate-800 px-4 py-2 flex items-center justify-between border-b border-slate-700">
+                    <div class="flex space-x-2">
+                        <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                        <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                        <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                    </div>
+                    <div class="text-xs text-slate-400 font-mono">UI Preview: Pagina "Settimane"</div>
+                </div>
+
+                <div class="flex flex-col md:flex-row h-[600px]">
+                    <!-- Sidebar Selector -->
+                    <div class="w-full md:w-64 bg-slate-800/50 border-r border-slate-700 p-4 flex flex-col gap-2">
+                        <button onclick="loadWeek('crime')" id="btn-crime" class="w-full text-left px-4 py-3 rounded-lg bg-red-900/20 text-red-400 border border-red-900/50 font-bold transition-all hover:bg-red-900/30">
+                            <i class="fas fa-search mr-2"></i> Settimana Crime
+                            <span class="block text-[10px] text-red-300/70 font-normal mt-1">Attuale</span>
+                        </button>
+                        <button onclick="loadWeek('romance')" id="btn-romance" class="w-full text-left px-4 py-3 rounded-lg text-slate-400 hover:bg-slate-700/50 transition-all">
+                            <i class="fas fa-heart mr-2"></i> Settimana Romance
+                            <span class="block text-[10px] text-slate-500 mt-1">Prossimamente</span>
+                        </button>
+                        <button onclick="loadWeek('comedy')" id="btn-comedy" class="w-full text-left px-4 py-3 rounded-lg text-slate-400 hover:bg-slate-700/50 transition-all">
+                            <i class="fas fa-laugh mr-2"></i> Settimana Comedy
+                            <span class="block text-[10px] text-slate-500 mt-1">Archivio</span>
+                        </button>
+                        
+                        <div class="mt-auto pt-6 border-t border-slate-700">
+                            <h5 class="text-xs font-bold text-slate-500 uppercase mb-2">Mobile Shorts</h5>
+                            <div class="flex space-x-2 overflow-x-auto hide-scroll">
+                                <div class="w-10 h-10 rounded-full border-2 border-red-500 p-0.5"><div class="w-full h-full bg-slate-600 rounded-full"></div></div>
+                                <div class="w-10 h-10 rounded-full border-2 border-slate-600 p-0.5"><div class="w-full h-full bg-slate-600 rounded-full"></div></div>
+                                <div class="w-10 h-10 rounded-full border-2 border-slate-600 p-0.5"><div class="w-full h-full bg-slate-600 rounded-full"></div></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Main Content Area -->
+                    <div class="flex-1 overflow-y-auto bg-slate-900 relative" id="week-display">
+                        <!-- Dynamic Content Injected Here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-16 bg-slate-900 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-white">Un Piano per Ogni Esigenza</h2>
+                <p class="mt-4 text-slate-400">Dal Free per tutti, al Premium 4K per i cinefili. Sostituisce Infinity+.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <!-- FREE -->
+                <div class="bg-slate-800 rounded-2xl p-6 border border-slate-700 flex flex-col hover:border-slate-500 transition-colors">
+                    <h3 class="text-lg font-bold text-slate-300">UNICA Free</h3>
+                    <div class="my-4">
+                        <span class="text-3xl font-bold text-white">€0</span><span class="text-slate-500">/mese</span>
+                    </div>
+                    <ul class="space-y-3 mb-8 flex-1 text-sm text-slate-400">
+                        <li class="flex items-start"><i class="fas fa-check text-slate-500 mt-1 mr-2"></i> Live Canali Mediaset</li>
+                        <li class="flex items-start"><i class="fas fa-check text-slate-500 mt-1 mr-2"></i> OnDemand (con ADV)</li>
+                        <li class="flex items-start"><i class="fas fa-times text-red-900 mt-1 mr-2"></i> No Settimane Complete</li>
+                    </ul>
+                    <button class="w-full py-2 rounded-lg border border-slate-600 text-white font-medium hover:bg-slate-700">Registrati</button>
+                </div>
+
+                <!-- STANDARD (Infinity+ Replacement) -->
+                <div class="bg-slate-800 rounded-2xl p-6 border-2 border-blue-600 flex flex-col relative transform lg:-translate-y-2 shadow-xl shadow-blue-900/20">
+                    <div class="absolute top-0 right-0 bg-blue-600 text-white text-[10px] font-bold px-2 py-1 rounded-bl-lg uppercase">Ex Infinity+</div>
+                    <h3 class="text-lg font-bold text-blue-400">Cinema & Serie</h3>
+                    <div class="my-4">
+                        <span class="text-3xl font-bold text-white">€7,99</span><span class="text-slate-500">/mese</span>
+                    </div>
+                    <ul class="space-y-3 mb-8 flex-1 text-sm text-slate-300">
+                        <li class="flex items-start"><i class="fas fa-check text-blue-500 mt-1 mr-2"></i> <strong>Tutto il Catalogo</strong></li>
+                        <li class="flex items-start"><i class="fas fa-check text-blue-500 mt-1 mr-2"></i> Full HD, 2 Schermi</li>
+                        <li class="flex items-start"><i class="fas fa-check text-blue-500 mt-1 mr-2"></i> Settimane UNICA</li>
+                        <li class="flex items-start"><i class="fas fa-info-circle text-slate-500 mt-1 mr-2"></i> Pubblicità Leggera</li>
+                    </ul>
+                    <button class="w-full py-2 rounded-lg bg-blue-600 text-white font-bold hover:bg-blue-500">Abbonati</button>
+                </div>
+
+                <!-- NO ADV -->
+                <div class="bg-slate-800 rounded-2xl p-6 border border-slate-700 flex flex-col hover:border-slate-500 transition-colors">
+                    <h3 class="text-lg font-bold text-purple-400">No ADV</h3>
+                    <div class="my-4">
+                        <span class="text-3xl font-bold text-white">€10,99</span><span class="text-slate-500">/mese</span>
+                    </div>
+                    <ul class="space-y-3 mb-8 flex-1 text-sm text-slate-400">
+                        <li class="flex items-start"><i class="fas fa-check text-purple-500 mt-1 mr-2"></i> Tutto Cinema & Serie</li>
+                        <li class="flex items-start"><i class="fas fa-check text-purple-500 mt-1 mr-2"></i> <strong>Zero Pubblicità</strong></li>
+                        <li class="flex items-start"><i class="fas fa-check text-purple-500 mt-1 mr-2"></i> Download (2 device)</li>
+                        <li class="flex items-start"><i class="fas fa-check text-purple-500 mt-1 mr-2"></i> 3 Schermi</li>
+                    </ul>
+                    <button class="w-full py-2 rounded-lg border border-slate-600 text-white font-medium hover:bg-slate-700">Prova Gratis</button>
+                </div>
+
+                <!-- PREMIUM -->
+                <div class="bg-slate-800 rounded-2xl p-6 border border-slate-700 flex flex-col hover:border-amber-500/50 transition-colors">
+                    <h3 class="text-lg font-bold text-amber-400">Premium 4K</h3>
+                    <div class="my-4">
+                        <span class="text-3xl font-bold text-white">€14,99</span><span class="text-slate-500">/mese</span>
+                    </div>
+                    <ul class="space-y-3 mb-8 flex-1 text-sm text-slate-400">
+                        <li class="flex items-start"><i class="fas fa-check text-amber-500 mt-1 mr-2"></i> <strong>4K HDR + Audio Pro</strong></li>
+                        <li class="flex items-start"><i class="fas fa-check text-amber-500 mt-1 mr-2"></i> 4 Schermi</li>
+                        <li class="flex items-start"><i class="fas fa-check text-amber-500 mt-1 mr-2"></i> Eventi & Backstage Esclusivi</li>
+                        <li class="flex items-start"><i class="fas fa-check text-amber-500 mt-1 mr-2"></i> Priorità Supporto</li>
+                    </ul>
+                    <button class="w-full py-2 rounded-lg border border-slate-600 text-white font-medium hover:bg-slate-700">Go Premium</button>
+                </div>
+
+            </div>
+            
+            <div class="mt-8 p-4 bg-slate-800/50 rounded-lg border border-slate-700 text-center">
+                <p class="text-sm text-slate-400">
+                    <i class="fas fa-sync-alt mr-2 text-blue-500"></i>
+                    <strong>Nota Migrazione:</strong> Gli utenti <em>Infinity+</em> attuali passano automaticamente al piano <strong>Cinema & Serie (7,99€)</strong> mantenendo il prezzo bloccato per 12 mesi e 1 mese omaggio "No ADV".
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 border-t border-slate-900 py-12">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p class="text-slate-600 text-sm">© 2025 Mediaset S.p.A. - Confidential Strategy Document</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Logic -->
+    <script>
+        // --- WEEK DATA ---
+        const weeksData = {
+            crime: {
+                themeColor: 'red',
+                title: 'Settimana Crime',
+                subtitle: 'Indagini, colpi di scena e anti-eroi.',
+                heroImage: 'linear-gradient(to right, #1a0505, #450a0a)',
+                content: `
+                    <div class="p-8 h-full flex flex-col animate-fade-in">
+                        <!-- Header -->
+                        <div class="flex justify-between items-end mb-6">
+                            <div>
+                                <h3 class="text-3xl font-bold text-white">Speciale Crime</h3>
+                                <p class="text-red-400 text-sm font-medium uppercase tracking-widest mt-1">Nuovo ogni giorno</p>
+                            </div>
+                            <div class="text-right hidden md:block">
+                                <span class="text-xs text-slate-500 block">Prossima Settimana</span>
+                                <span class="text-sm text-slate-300">Romance <i class="fas fa-chevron-right ml-1"></i></span>
+                            </div>
+                        </div>
+
+                        <!-- Hero Slot -->
+                        <div class="w-full h-48 rounded-xl bg-gradient-to-r from-red-950 to-slate-900 border border-red-900/30 flex items-center p-6 mb-8 relative overflow-hidden group">
+                             <div class="absolute right-0 top-0 h-full w-1/2 bg-[url('https://images.unsplash.com/photo-1555099962-4199c345e5dd?auto=format&fit=crop&q=80')] bg-cover bg-center opacity-20 mix-blend-overlay"></div>
+                             <div class="relative z-10">
+                                <span class="bg-red-600 text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase">Maratona</span>
+                                <h4 class="text-2xl font-bold text-white mt-2 mb-2">Caccia al Killer</h4>
+                                <p class="text-sm text-slate-300 mb-4 max-w-sm">Una selezione curata dei migliori true crime italiani e internazionali.</p>
+                                <button class="px-4 py-2 bg-white text-red-900 font-bold text-xs rounded hover:bg-slate-200"><i class="fas fa-play mr-1"></i> Inizia</button>
+                             </div>
+                        </div>
+
+                        <!-- Grids -->
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 flex-1">
+                            <!-- Entry Level -->
+                            <div class="bg-slate-800/50 p-4 rounded-xl border border-slate-700">
+                                <h5 class="text-xs font-bold text-slate-400 uppercase mb-3"><i class="fas fa-star text-yellow-500 mr-1"></i> Per Iniziare</h5>
+                                <div class="space-y-3">
+                                    <div class="flex items-center gap-3 group cursor-pointer">
+                                        <div class="w-12 h-16 bg-slate-700 rounded bg-cover" style="background-image: url('https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&q=60')"></div>
+                                        <div>
+                                            <div class="text-sm font-bold text-white group-hover:text-red-400">Sherlock</div>
+                                            <div class="text-[10px] text-slate-500">BBC • 4 Stagioni</div>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center gap-3 group cursor-pointer">
+                                        <div class="w-12 h-16 bg-slate-700 rounded bg-cover" style="background-image: url('https://images.unsplash.com/photo-1626814026160-2237a95fc5a0?auto=format&fit=crop&q=60')"></div>
+                                        <div>
+                                            <div class="text-sm font-bold text-white group-hover:text-red-400">Mare Fuori</div>
+                                            <div class="text-[10px] text-slate-500">Rai/Mediaset • Cult</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Binge Watching -->
+                            <div class="bg-slate-800/50 p-4 rounded-xl border border-slate-700 col-span-2">
+                                <div class="flex justify-between items-center mb-3">
+                                    <h5 class="text-xs font-bold text-slate-400 uppercase">Serie in Binge</h5>
+                                    <div class="flex gap-1">
+                                        <span class="text-[10px] px-2 py-0.5 rounded-full border border-slate-600 text-slate-400">Investigativo</span>
+                                        <span class="text-[10px] px-2 py-0.5 rounded-full border border-slate-600 text-slate-400">Thriller</span>
+                                    </div>
+                                </div>
+                                <div class="flex gap-4 overflow-x-auto hide-scroll pb-2">
+                                     <div class="w-32 flex-shrink-0">
+                                        <div class="h-20 bg-slate-700 rounded mb-2 relative">
+                                            <div class="absolute bottom-0 left-0 w-full h-1 bg-slate-600"><div class="w-3/4 h-full bg-red-500"></div></div>
+                                        </div>
+                                        <div class="text-xs font-bold text-slate-200">The Sinner</div>
+                                        <div class="text-[10px] text-slate-500">S3 E4</div>
+                                     </div>
+                                     <div class="w-32 flex-shrink-0">
+                                        <div class="h-20 bg-slate-700 rounded mb-2 relative"></div>
+                                        <div class="text-xs font-bold text-slate-200">Hannibal</div>
+                                        <div class="text-[10px] text-slate-500">Nuova su UNICA</div>
+                                     </div>
+                                     <div class="w-32 flex-shrink-0">
+                                        <div class="h-20 bg-slate-700 rounded mb-2 relative"></div>
+                                        <div class="text-xs font-bold text-slate-200">Broadchurch</div>
+                                        <div class="text-[10px] text-slate-500">Premiata</div>
+                                     </div>
+                                </div>
+                            </div>
+                        </div>
+
+                         <!-- Interactive Tag -->
+                         <div class="mt-6 p-3 bg-red-500/10 border border-red-500/20 rounded-lg flex items-center justify-between">
+                            <span class="text-xs text-red-200">Ti piace il Crime? Salva il genere per raccomandazioni migliori.</span>
+                            <button class="text-xs font-bold text-white bg-red-600 px-3 py-1 rounded hover:bg-red-500">Salva Genere</button>
+                         </div>
+                    </div>
+                `
+            },
+            romance: {
+                themeColor: 'pink',
+                title: 'Settimana Romance',
+                subtitle: 'Amore, passione e lacrime.',
+                heroImage: 'linear-gradient(to right, #4a044e, #831843)',
+                content: `
+                    <div class="p-8 h-full flex flex-col animate-fade-in">
+                        <div class="flex justify-between items-end mb-6">
+                            <div>
+                                <h3 class="text-3xl font-bold text-white">Speciale Romance</h3>
+                                <p class="text-pink-400 text-sm font-medium uppercase tracking-widest mt-1">Coming Soon</p>
+                            </div>
+                        </div>
+                        <div class="flex-1 flex items-center justify-center border-2 border-dashed border-slate-700 rounded-xl bg-slate-800/30">
+                            <div class="text-center">
+                                <i class="fas fa-heart text-4xl text-pink-500 mb-4 animate-bounce"></i>
+                                <h4 class="text-xl font-bold text-white">Anteprima Layout</h4>
+                                <p class="text-slate-400 text-sm max-w-md mt-2">Qui appariranno le collezioni "Love Stories", "Commedie Romantiche" e i film del momento.</p>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            comedy: {
+                 themeColor: 'yellow',
+                 content: `
+                    <div class="p-8 h-full flex flex-col animate-fade-in">
+                         <h3 class="text-3xl font-bold text-white mb-6">Archivio: Comedy</h3>
+                         <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                            <div class="aspect-video bg-slate-800 rounded-lg flex items-center justify-center border border-slate-700 text-slate-500 text-xs">Sitcom Cult</div>
+                            <div class="aspect-video bg-slate-800 rounded-lg flex items-center justify-center border border-slate-700 text-slate-500 text-xs">Stand Up IT</div>
+                            <div class="aspect-video bg-slate-800 rounded-lg flex items-center justify-center border border-slate-700 text-slate-500 text-xs">Cinepanettoni</div>
+                            <div class="aspect-video bg-slate-800 rounded-lg flex items-center justify-center border border-slate-700 text-slate-500 text-xs">Comedy USA</div>
+                         </div>
+                    </div>
+                 `
+            }
+        };
+
+        function loadWeek(key) {
+            // Logic to update buttons
+            ['crime', 'romance', 'comedy'].forEach(k => {
+                const btn = document.getElementById(`btn-${k}`);
+                if (k === key) {
+                    btn.className = `w-full text-left px-4 py-3 rounded-lg bg-${weeksData[k].themeColor || 'slate'}-900/40 text-white border border-${weeksData[k].themeColor || 'slate'}-500/50 font-bold transition-all transform scale-105 shadow-lg`;
+                    // Note: Tailwind dynamic classes might need safelisting in production, here using style injection logic roughly
+                } else {
+                    btn.className = "w-full text-left px-4 py-3 rounded-lg text-slate-400 hover:bg-slate-700/50 transition-all opacity-70 hover:opacity-100";
+                }
+            });
+
+            // Logic to inject content
+            const container = document.getElementById('week-display');
+            container.innerHTML = weeksData[key].content;
+        }
+
+        // --- CHARTS INITIALIZATION ---
+        document.addEventListener('DOMContentLoaded', () => {
+            loadWeek('crime'); // Default
+
+            // Content Mix Chart - Updated Logic
+            const ctxMix = document.getElementById('contentMixChart').getContext('2d');
+            new Chart(ctxMix, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Cinema/Serie Global', 'Mediaset Library', 'Originals', 'Live'],
+                    datasets: [{
+                        data: [45, 25, 20, 10], // Shift towards Global content
+                        backgroundColor: ['#3b82f6', '#0ea5e9', '#f43f5e', '#64748b'],
+                        borderWidth: 0,
+                        hoverOffset: 4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { position: 'right', labels: { color: '#cbd5e1', usePointStyle: true, font: { size: 10 } } },
+                        title: { display: false }
+                    },
+                    cutout: '70%'
+                }
+            });
+        });
+    </script>
+    <style>
+        /* Animation Utility */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.4s ease-out forwards;
+        }
+    </style>
+</body>
+</html>
